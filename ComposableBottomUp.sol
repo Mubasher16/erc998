@@ -46,10 +46,10 @@ interface ERC998ERC721BottomUpEnumerable {
 contract ComposableBottomUp is ERC721, ERC998ERC721BottomUp, ERC998ERC721BottomUpEnumerable {
     using SafeMath for uint256;
 
-    struct TokenOwner {
-        address tokenOwner;
-        uint256 parentTokenId;
-    }
+//    struct TokenOwner {
+ //       address tokenOwner;
+ //       uint256 parentTokenId;
+  //  }
 
 
     // return this.rootOwnerOf.selector ^ this.rootOwnerOfChild.selector ^
@@ -59,7 +59,7 @@ contract ComposableBottomUp is ERC721, ERC998ERC721BottomUp, ERC998ERC721BottomU
     uint256 tokenCount = 0;
 
     // tokenId => token owner
-    mapping(uint256 => TokenOwner) internal tokenIdToTokenOwner;
+    mapping(uint256 => address) internal tokenIdToTokenOwner;
 
     // root token owner address => (tokenId => approved address)
     mapping(address => mapping(uint256 => address)) internal rootOwnerAndTokenIdToApprovedAddress;
